@@ -17,7 +17,7 @@ export const loader = async ({ params, request }: LoaderArgs) => {
 
   const note = await getNote({ id: params.noteId, userId });
   if (!note) {
-    throw new Response("Not Found", { status: 404 });
+    throw new Response("Note not found", { status: 404 });
   }
   return json({ note });
 };
